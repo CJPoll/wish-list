@@ -12,8 +12,10 @@ When(/^I visit the "(.*?)" page$/) do |page|
 
 	if page == 'create user'
 		path = new_user_path
-	elsif page == "edit user"
+	elsif page == 'edit user'
 		path = edit_user_path(User.last) 
+	elsif page == 'users index'
+		path = users_path
 	end
 
 	expect(path).to_not be_nil
@@ -24,6 +26,8 @@ Then(/^I should be on the "(.*?)" page$/) do |page|
 	path = nil
 	if page == 'show user'
 		path = user_path(User.last)
+	elsif page == 'users index'
+		path = users_path
 	end
 
 	expect(path).to_not be_nil
