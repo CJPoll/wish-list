@@ -10,13 +10,15 @@ Then(/^there should be a new user in the system$/) do
 end
 
 Given(/^I have created a user$/) do
-	  pending # express the regexp above with the code you wish you had
+	@user = FactoryGirl.create(:user)
 end
 
-When(/^I change the user's email to "(.*?)"$/) do |arg1|
-	  pending # express the regexp above with the code you wish you had
+When(/^I change the user's email to "(.*?)"$/) do |email|
+	fill_in :user_email, with: email
+	fill_in :user_password, with: @user.password
+	click_on 'Save'
 end
 
-Then(/^the user's email should be "(.*?)"$/) do |arg1|
-	  pending # express the regexp above with the code you wish you had
+Then(/^the user's email should be "(.*?)"$/) do |email|
+	expect(User.last.email).to eq(email)
 end

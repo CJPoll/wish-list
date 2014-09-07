@@ -8,12 +8,23 @@ Given(/^I am logged in$/) do
 end
 
 When(/^I visit the "(.*?)" page$/) do |page|
+	path = nil
+
 	if page == 'create user'
-		visit new_user_path
+		path = new_user_path
+	elsif page == "edit user"
+		path = edit_user_path(User.last) 
 	end
+
+	expect(path).to_not be_nil
+	visit path
 end
+
 Then(/^I should be on the "(.*?)" page$/) do |page|
+	path = nil
 	if page == 'show user'
-		expect(current_path).to eq(user_path(User.last))
+		path = user_path(User.last)
 	end
+
+	expect(path).to_not be_nil
 end
