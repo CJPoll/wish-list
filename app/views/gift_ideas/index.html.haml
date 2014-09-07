@@ -1,0 +1,23 @@
+%h1 Listing gift_ideas
+
+%table
+  %tr
+    %th Name
+    %th Description
+    %th Url
+    %th
+    %th
+    %th
+
+  - @gift_ideas.each do |gift_idea|
+    %tr
+      %td= gift_idea.name
+      %td= gift_idea.description
+      %td= gift_idea.url
+      %td= link_to 'Show', gift_idea
+      %td= link_to 'Edit', edit_gift_idea_path(gift_idea)
+      %td= link_to 'Destroy', gift_idea, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Gift idea', new_gift_idea_path

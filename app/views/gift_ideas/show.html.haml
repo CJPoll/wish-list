@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @gift_idea.name
+%p
+  %b Description:
+  = @gift_idea.description
+%p
+  %b Url:
+  = @gift_idea.url
+
+= link_to 'Edit', edit_gift_idea_path(@gift_idea)
+\|
+= link_to 'Back', gift_ideas_path
