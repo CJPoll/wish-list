@@ -42,7 +42,7 @@ RSpec.describe GiftIdeasController, :type => :controller do
 
 	describe "GET index" do
 		it "assigns all gift_ideas as @gift_ideas" do
-			gift_idea = GiftIdea.create! valid_attributes
+			gift_idea = FactoryGirl.create(:gift_idea)
 			get :index, {}, valid_session
 			expect(assigns(:gift_ideas)).to eq([gift_idea])
 		end
@@ -50,7 +50,7 @@ RSpec.describe GiftIdeasController, :type => :controller do
 
 	describe "GET show" do
 		it "assigns the requested gift_idea as @gift_idea" do
-			gift_idea = GiftIdea.create! valid_attributes
+			gift_idea = FactoryGirl.create(:gift_idea)
 			get :show, {:id => gift_idea.to_param}, valid_session
 			expect(assigns(:gift_idea)).to eq(gift_idea)
 		end
@@ -65,7 +65,7 @@ RSpec.describe GiftIdeasController, :type => :controller do
 
 	describe "GET edit" do
 		it "assigns the requested gift_idea as @gift_idea" do
-			gift_idea = GiftIdea.create! valid_attributes
+			gift_idea = FactoryGirl.create(:gift_idea)
 			get :edit, {:id => gift_idea.to_param}, valid_session
 			expect(assigns(:gift_idea)).to eq(gift_idea)
 		end
@@ -113,20 +113,20 @@ RSpec.describe GiftIdeasController, :type => :controller do
 			}}
 
 			it "updates the requested gift_idea" do
-				gift_idea = GiftIdea.create! valid_attributes
+				gift_idea = FactoryGirl.create(:gift_idea)
 				put :update, {:id => gift_idea.to_param, :gift_idea => new_attributes}, valid_session
 				gift_idea.reload
 				gift_idea.name = 'Fancy Clock'
 			end
 
 			it "assigns the requested gift_idea as @gift_idea" do
-				gift_idea = GiftIdea.create! valid_attributes
+				gift_idea = FactoryGirl.create(:gift_idea)
 				put :update, {:id => gift_idea.to_param, :gift_idea => valid_attributes}, valid_session
 				expect(assigns(:gift_idea)).to eq(gift_idea)
 			end
 
 			it "redirects to the gift_idea" do
-				gift_idea = GiftIdea.create! valid_attributes
+				gift_idea = FactoryGirl.create(:gift_idea)
 				put :update, {:id => gift_idea.to_param, :gift_idea => valid_attributes}, valid_session
 				expect(response).to redirect_to(gift_idea)
 			end
@@ -134,13 +134,13 @@ RSpec.describe GiftIdeasController, :type => :controller do
 
 		describe "with invalid params" do
 			it "assigns the gift_idea as @gift_idea" do
-				gift_idea = GiftIdea.create! valid_attributes
+				gift_idea = FactoryGirl.create(:gift_idea)
 				put :update, {:id => gift_idea.to_param, :gift_idea => invalid_attributes}, valid_session
 				expect(assigns(:gift_idea)).to eq(gift_idea)
 			end
 
 			it "re-renders the 'edit' template" do
-				gift_idea = GiftIdea.create! valid_attributes
+				gift_idea = FactoryGirl.create(:gift_idea)
 				put :update, {:id => gift_idea.to_param, :gift_idea => invalid_attributes}, valid_session
 				expect(response).to render_template("edit")
 			end
@@ -149,14 +149,14 @@ RSpec.describe GiftIdeasController, :type => :controller do
 
 	describe "DELETE destroy" do
 		it "destroys the requested gift_idea" do
-			gift_idea = GiftIdea.create! valid_attributes
+			gift_idea = FactoryGirl.create(:gift_idea)
 			expect {
 				delete :destroy, {:id => gift_idea.to_param}, valid_session
 			}.to change(GiftIdea, :count).by(-1)
 		end
 
 		it "redirects to the gift_ideas list" do
-			gift_idea = GiftIdea.create! valid_attributes
+			gift_idea = FactoryGirl.create(:gift_idea)
 			delete :destroy, {:id => gift_idea.to_param}, valid_session
 			expect(response).to redirect_to(gift_ideas_url)
 		end
