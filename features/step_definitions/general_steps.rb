@@ -16,10 +16,16 @@ When(/^I visit the "(.*?)" page$/) do |page|
 		path = edit_user_path(User.last) 
 	elsif page == 'users index'
 		path = users_path
+	elsif page == 'wish list'
+		path = gift_ideas_path
 	end
 
 	expect(path).to_not be_nil
 	visit path
+end
+
+When(/^I press "(.*?)"$/) do |button|
+	click_on button
 end
 
 Then(/^I should be on the "(.*?)" page$/) do |page|
@@ -28,6 +34,8 @@ Then(/^I should be on the "(.*?)" page$/) do |page|
 		path = user_path(User.last)
 	elsif page == 'users index'
 		path = users_path
+	elsif page == 'wish list'
+		path = gift_ideas_path
 	end
 
 	expect(path).to_not be_nil
