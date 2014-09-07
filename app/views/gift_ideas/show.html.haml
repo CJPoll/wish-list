@@ -2,13 +2,10 @@
 
 %p
   %b Name:
-  = @gift_idea.name
+  = link_to @gift_idea.name, @gift_idea.url
 %p
   %b Description:
   = @gift_idea.description
-%p
-  %b Url:
-  = @gift_idea.url
 
 = link_to 'Edit', edit_gift_idea_path(@gift_idea)
 \|
