@@ -1,19 +1,22 @@
 = form_for @gift_idea do |f|
-  - if @gift_idea.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@gift_idea.errors.count, "error")} prohibited this gift_idea from being saved:"
-      %ul
-        - @gift_idea.errors.full_messages.each do |msg|
-          %li= msg
+	- if @gift_idea.errors.any?
+		#error_explanation
+			%h2= "#{pluralize(@gift_idea.errors.count, "error")} prohibited this gift_idea from being saved:"
+			%ul
+				- @gift_idea.errors.full_messages.each do |msg|
+					%li= msg
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :description
-    = f.text_area :description
-  .field
-    = f.label :url
-    = f.text_field :url
-  .actions
-    = f.submit 'Save'
+	.form-group
+		= f.label :name
+		.text_field
+			= f.text_field :name
+	.form-group
+		= f.label :description
+		.text_field
+			= f.text_area :description
+	.form-group
+		= f.label :url
+		.text_field
+			= f.text_field :url
+	.form-group
+		= f.submit 'Save', class: [:btn, :'btn-success']

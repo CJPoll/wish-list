@@ -10,3 +10,19 @@
 		margin-left: 9px;
 	}
 }
+
+label
+{
+	@extend .control-label;
+	@extend .col-xs-1;
+}
+
+.text_field
+{
+	@extend .col-md-11;
+}
+
+input:not([type=submit]):not([type=file]), textarea
+{
+	@extend .form-control;
+}
