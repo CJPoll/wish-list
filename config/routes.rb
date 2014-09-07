@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 	devise_for :users
 
-	root to: 'gift_ideas#index'
+	root to: 'static#landing'
 
 	resources :gift_ideas
 	scope '/admin' do
