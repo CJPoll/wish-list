@@ -69,6 +69,6 @@ class GiftIdeasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gift_idea_params
-      params.require(:gift_idea).permit(:name, :description, :url)
+      params.require(:gift_idea).permit(:name, :description, :url, :user_id)
     end
 end

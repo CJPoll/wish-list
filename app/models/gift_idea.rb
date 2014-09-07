@@ -16,4 +16,6 @@ class GiftIdea < ActiveRecord::Base
 	validates :name, presence: true
 	validates :description, presence: true
 	validates :url, presence: true
+
+	validates_presence_of :user
 end
