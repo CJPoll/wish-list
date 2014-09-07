@@ -25,6 +25,7 @@ class GiftIdeasController < ApplicationController
   # POST /gift_ideas.json
   def create
     @gift_idea = GiftIdea.new(gift_idea_params)
+	@gift_idea.user = current_user
 
     respond_to do |format|
       if @gift_idea.save
@@ -69,6 +70,6 @@ class GiftIdeasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gift_idea_params
-      params.require(:gift_idea).permit(:name, :description, :url, :user_id)
+      params.require(:gift_idea).permit(:name, :description, :url)
     end
 end

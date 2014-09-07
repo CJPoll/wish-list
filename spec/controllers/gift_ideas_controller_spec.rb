@@ -27,20 +27,20 @@ RSpec.describe GiftIdeasController, :type => :controller do
 		name: 'Fancy Watch',
 		description: 'Tells time',
 		url: Faker::Internet.url,
-		user_id: FactoryGirl.create(:user).id
 	}}
 
 	let(:invalid_attributes) {{
 		name: '',
 		description: '',
 		url: '',
-		user_id: FactoryGirl.create(:user).id
 	}}
 
 	# This should return the minimal set of values that should be in the session
 	# in order to pass any filters (e.g. authentication) defined in
 	# GiftIdeasController. Be sure to keep this updated too.
 	let(:valid_session) { {} }
+
+	login_user
 
 	describe "GET index" do
 		it "assigns all gift_ideas as @gift_ideas" do
@@ -76,9 +76,8 @@ RSpec.describe GiftIdeasController, :type => :controller do
 	describe "POST create" do
 		describe "with valid params" do
 			it "creates a new GiftIdea" do
-				owner = FactoryGirl.create(:user)
 				expect {
-					post :create, {:gift_idea => valid_attributes, user_id: owner.to_param}, valid_session
+					post :create, {:gift_idea => valid_attributes}, valid_session
 				}.to change(GiftIdea, :count).by(1)
 			end
 
