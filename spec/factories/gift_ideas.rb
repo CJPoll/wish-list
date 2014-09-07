@@ -17,5 +17,6 @@ FactoryGirl.define do
     name "Darth Vader Gift Mug"
     description "A mug in the shape of Darth Vader"
     url "http://www.amazon.com/Star-Wars-Darth-Vader-Ceramic/dp/B003WLXSCG"
+	user
   end
 end
