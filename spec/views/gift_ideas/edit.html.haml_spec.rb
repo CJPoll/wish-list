@@ -2,11 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "gift_ideas/edit", :type => :view do
   before(:each) do
-    @gift_idea = assign(:gift_idea, GiftIdea.create!(
-      :name => "MyString",
-      :description => "MyText",
-      :url => "MyString"
-    ))
+    @gift_idea = assign(:gift_idea, FactoryGirl.create(:gift_idea))
   end
 
   it "renders the edit gift_idea form" do
