@@ -1,23 +1,33 @@
-%h1 Listing gift_ideas
+.container-fluid
+	%h1 Cody's Wish List
 
-%table
-  %tr
-    %th Name
-    %th Description
-    %th Url
-    %th
-    %th
-    %th
+	.row.hidden-xs
+		.table-responsive
+			%table.table
+				%tr
+					%th.col-md-2
+						Name
+					%th.col-md-6
+						Description
+					%th.col-md-1
+					%th.col-md-1
 
-  - @gift_ideas.each do |gift_idea|
-    %tr
-      %td= gift_idea.name
-      %td= gift_idea.description
-      %td= gift_idea.url
-      %td= link_to 'Show', gift_idea
-      %td= link_to 'Edit', edit_gift_idea_path(gift_idea)
-      %td= link_to 'Destroy', gift_idea, :method => :delete, :data => { :confirm => 'Are you sure?' }
+				- @gift_ideas.each do |gift_idea|
+					%tr
+						%td= link_to gift_idea.name, gift_idea.url, class: [:btn, :'btn-primary']
+						%td= gift_idea.description
+						%td= link_to 'Edit', edit_gift_idea_path(gift_idea), class: [:btn, :'btn-info']
+						%td= link_to 'Delete', gift_idea, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: [:btn, :'btn-danger']
+	
+	.visible-xs
+		- @gift_ideas.each do |gift_idea|
+			.container-fluid
+				.row
+					= link_to gift_idea.name, gift_idea.url, class: [:btn, :'btn-primary']
+				.row
+					%p
+						= gift_idea.description
 
-%br
 
-= link_to 'New Gift idea', new_gift_idea_path
+	.row
+		= link_to 'New Gift idea', new_gift_idea_path
