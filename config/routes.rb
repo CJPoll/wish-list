@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
+
+	devise_for :users
+
 	root to: 'gift_ideas#index'
 
 	resources :gift_ideas
+	scope '/admin' do
+		resources :users
+	end
 
 	# The priority is based upon order of creation: first created -> highest priority.
 	# See how all your routes lay out with "rake routes".
