@@ -1,10 +1,11 @@
 class GiftIdeasController < ApplicationController
   before_action :set_gift_idea, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /gift_ideas
   # GET /gift_ideas.json
   def index
-    @gift_ideas = GiftIdea.all
+    @gift_ideas = current_user.gift_ideas
   end
 
   # GET /gift_ideas/1

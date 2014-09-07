@@ -43,10 +43,11 @@ RSpec.describe GiftIdeasController, :type => :controller do
 	login_user
 
 	describe "GET index" do
-		it "assigns all gift_ideas as @gift_ideas" do
-			gift_idea = FactoryGirl.create(:gift_idea)
+		it "assigns all the user's gift_ideas as @gift_ideas" do
+			gift_idea1 = FactoryGirl.create(:gift_idea, user: @user)
+			FactoryGirl.create(:gift_idea)
 			get :index, {}, valid_session
-			expect(assigns(:gift_ideas)).to eq([gift_idea])
+			expect(assigns(:gift_ideas)).to eq([gift_idea1])
 		end
 	end
 
