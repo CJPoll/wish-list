@@ -20,140 +20,146 @@ require 'rails_helper'
 
 RSpec.describe GiftIdeasController, :type => :controller do
 
-  # This should return the minimal set of attributes required to create a valid
-  # GiftIdea. As you add validations to GiftIdea, be sure to
-  # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+	# This should return the minimal set of attributes required to create a valid
+	# GiftIdea. As you add validations to GiftIdea, be sure to
+	# adjust the attributes here as well.
+	let(:valid_attributes) {{
+		name: 'Fancy Watch',
+		description: 'Tells time',
+		url: Faker::Internet.url
+	}}
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+	let(:invalid_attributes) {{
+		name: '',
+		description: '',
+		url: ''
+	}}
 
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
-  # GiftIdeasController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+	# This should return the minimal set of values that should be in the session
+	# in order to pass any filters (e.g. authentication) defined in
+	# GiftIdeasController. Be sure to keep this updated too.
+	let(:valid_session) { {} }
 
-  describe "GET index" do
-    it "assigns all gift_ideas as @gift_ideas" do
-      gift_idea = GiftIdea.create! valid_attributes
-      get :index, {}, valid_session
-      expect(assigns(:gift_ideas)).to eq([gift_idea])
-    end
-  end
+	describe "GET index" do
+		it "assigns all gift_ideas as @gift_ideas" do
+			gift_idea = GiftIdea.create! valid_attributes
+			get :index, {}, valid_session
+			expect(assigns(:gift_ideas)).to eq([gift_idea])
+		end
+	end
 
-  describe "GET show" do
-    it "assigns the requested gift_idea as @gift_idea" do
-      gift_idea = GiftIdea.create! valid_attributes
-      get :show, {:id => gift_idea.to_param}, valid_session
-      expect(assigns(:gift_idea)).to eq(gift_idea)
-    end
-  end
+	describe "GET show" do
+		it "assigns the requested gift_idea as @gift_idea" do
+			gift_idea = GiftIdea.create! valid_attributes
+			get :show, {:id => gift_idea.to_param}, valid_session
+			expect(assigns(:gift_idea)).to eq(gift_idea)
+		end
+	end
 
-  describe "GET new" do
-    it "assigns a new gift_idea as @gift_idea" do
-      get :new, {}, valid_session
-      expect(assigns(:gift_idea)).to be_a_new(GiftIdea)
-    end
-  end
+	describe "GET new" do
+		it "assigns a new gift_idea as @gift_idea" do
+			get :new, {}, valid_session
+			expect(assigns(:gift_idea)).to be_a_new(GiftIdea)
+		end
+	end
 
-  describe "GET edit" do
-    it "assigns the requested gift_idea as @gift_idea" do
-      gift_idea = GiftIdea.create! valid_attributes
-      get :edit, {:id => gift_idea.to_param}, valid_session
-      expect(assigns(:gift_idea)).to eq(gift_idea)
-    end
-  end
+	describe "GET edit" do
+		it "assigns the requested gift_idea as @gift_idea" do
+			gift_idea = GiftIdea.create! valid_attributes
+			get :edit, {:id => gift_idea.to_param}, valid_session
+			expect(assigns(:gift_idea)).to eq(gift_idea)
+		end
+	end
 
-  describe "POST create" do
-    describe "with valid params" do
-      it "creates a new GiftIdea" do
-        expect {
-          post :create, {:gift_idea => valid_attributes}, valid_session
-        }.to change(GiftIdea, :count).by(1)
-      end
+	describe "POST create" do
+		describe "with valid params" do
+			it "creates a new GiftIdea" do
+				expect {
+					post :create, {:gift_idea => valid_attributes}, valid_session
+				}.to change(GiftIdea, :count).by(1)
+			end
 
-      it "assigns a newly created gift_idea as @gift_idea" do
-        post :create, {:gift_idea => valid_attributes}, valid_session
-        expect(assigns(:gift_idea)).to be_a(GiftIdea)
-        expect(assigns(:gift_idea)).to be_persisted
-      end
+			it "assigns a newly created gift_idea as @gift_idea" do
+				post :create, {:gift_idea => valid_attributes}, valid_session
+				expect(assigns(:gift_idea)).to be_a(GiftIdea)
+				expect(assigns(:gift_idea)).to be_persisted
+			end
 
-      it "redirects to the created gift_idea" do
-        post :create, {:gift_idea => valid_attributes}, valid_session
-        expect(response).to redirect_to(GiftIdea.last)
-      end
-    end
+			it "redirects to the created gift_idea" do
+				post :create, {:gift_idea => valid_attributes}, valid_session
+				expect(response).to redirect_to(GiftIdea.last)
+			end
+		end
 
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved gift_idea as @gift_idea" do
-        post :create, {:gift_idea => invalid_attributes}, valid_session
-        expect(assigns(:gift_idea)).to be_a_new(GiftIdea)
-      end
+		describe "with invalid params" do
+			it "assigns a newly created but unsaved gift_idea as @gift_idea" do
+				post :create, {:gift_idea => invalid_attributes}, valid_session
+				expect(assigns(:gift_idea)).to be_a_new(GiftIdea)
+			end
 
-      it "re-renders the 'new' template" do
-        post :create, {:gift_idea => invalid_attributes}, valid_session
-        expect(response).to render_template("new")
-      end
-    end
-  end
+			it "re-renders the 'new' template" do
+				post :create, {:gift_idea => invalid_attributes}, valid_session
+				expect(response).to render_template("new")
+			end
+		end
+	end
 
-  describe "PUT update" do
-    describe "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
+	describe "PUT update" do
+		describe "with valid params" do
+			let(:new_attributes) {{
+				name: 'Fancy Clock',
+				description: 'Tells time',
+				url: Faker::Internet.url
+			}}
 
-      it "updates the requested gift_idea" do
-        gift_idea = GiftIdea.create! valid_attributes
-        put :update, {:id => gift_idea.to_param, :gift_idea => new_attributes}, valid_session
-        gift_idea.reload
-        skip("Add assertions for updated state")
-      end
+			it "updates the requested gift_idea" do
+				gift_idea = GiftIdea.create! valid_attributes
+				put :update, {:id => gift_idea.to_param, :gift_idea => new_attributes}, valid_session
+				gift_idea.reload
+				gift_idea.name = 'Fancy Clock'
+			end
 
-      it "assigns the requested gift_idea as @gift_idea" do
-        gift_idea = GiftIdea.create! valid_attributes
-        put :update, {:id => gift_idea.to_param, :gift_idea => valid_attributes}, valid_session
-        expect(assigns(:gift_idea)).to eq(gift_idea)
-      end
+			it "assigns the requested gift_idea as @gift_idea" do
+				gift_idea = GiftIdea.create! valid_attributes
+				put :update, {:id => gift_idea.to_param, :gift_idea => valid_attributes}, valid_session
+				expect(assigns(:gift_idea)).to eq(gift_idea)
+			end
 
-      it "redirects to the gift_idea" do
-        gift_idea = GiftIdea.create! valid_attributes
-        put :update, {:id => gift_idea.to_param, :gift_idea => valid_attributes}, valid_session
-        expect(response).to redirect_to(gift_idea)
-      end
-    end
+			it "redirects to the gift_idea" do
+				gift_idea = GiftIdea.create! valid_attributes
+				put :update, {:id => gift_idea.to_param, :gift_idea => valid_attributes}, valid_session
+				expect(response).to redirect_to(gift_idea)
+			end
+		end
 
-    describe "with invalid params" do
-      it "assigns the gift_idea as @gift_idea" do
-        gift_idea = GiftIdea.create! valid_attributes
-        put :update, {:id => gift_idea.to_param, :gift_idea => invalid_attributes}, valid_session
-        expect(assigns(:gift_idea)).to eq(gift_idea)
-      end
+		describe "with invalid params" do
+			it "assigns the gift_idea as @gift_idea" do
+				gift_idea = GiftIdea.create! valid_attributes
+				put :update, {:id => gift_idea.to_param, :gift_idea => invalid_attributes}, valid_session
+				expect(assigns(:gift_idea)).to eq(gift_idea)
+			end
 
-      it "re-renders the 'edit' template" do
-        gift_idea = GiftIdea.create! valid_attributes
-        put :update, {:id => gift_idea.to_param, :gift_idea => invalid_attributes}, valid_session
-        expect(response).to render_template("edit")
-      end
-    end
-  end
+			it "re-renders the 'edit' template" do
+				gift_idea = GiftIdea.create! valid_attributes
+				put :update, {:id => gift_idea.to_param, :gift_idea => invalid_attributes}, valid_session
+				expect(response).to render_template("edit")
+			end
+		end
+	end
 
-  describe "DELETE destroy" do
-    it "destroys the requested gift_idea" do
-      gift_idea = GiftIdea.create! valid_attributes
-      expect {
-        delete :destroy, {:id => gift_idea.to_param}, valid_session
-      }.to change(GiftIdea, :count).by(-1)
-    end
+	describe "DELETE destroy" do
+		it "destroys the requested gift_idea" do
+			gift_idea = GiftIdea.create! valid_attributes
+			expect {
+				delete :destroy, {:id => gift_idea.to_param}, valid_session
+			}.to change(GiftIdea, :count).by(-1)
+		end
 
-    it "redirects to the gift_ideas list" do
-      gift_idea = GiftIdea.create! valid_attributes
-      delete :destroy, {:id => gift_idea.to_param}, valid_session
-      expect(response).to redirect_to(gift_ideas_url)
-    end
-  end
+		it "redirects to the gift_ideas list" do
+			gift_idea = GiftIdea.create! valid_attributes
+			delete :destroy, {:id => gift_idea.to_param}, valid_session
+			expect(response).to redirect_to(gift_ideas_url)
+		end
+	end
 
 end
