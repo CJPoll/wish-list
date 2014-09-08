@@ -17,7 +17,7 @@
 						%td= link_to gift_idea.name, gift_idea.url, class: [:btn, :'btn-primary']
 						%td= gift_idea.description
 						%td= link_to 'Edit', edit_gift_idea_path(gift_idea), class: [:btn, :'btn-info']
-						%td= link_to 'Delete', gift_idea, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: [:btn, :'btn-danger']
+						%td= link_to 'Delete', gift_idea, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: [:btn, :'btn-danger'], id: "wish_destroy_#{gift_idea.id}"
 	
 	.visible-xs
 		- @gift_ideas.each do |gift_idea|
