@@ -18,6 +18,8 @@ When(/^I visit the "(.*?)" page$/) do |page|
 		path = users_path
 	elsif page == 'wish list'
 		path = gift_ideas_path
+	elsif page == 'edit wish'
+		path = edit_gift_idea_path(GiftIdea.last)
 	end
 
 	expect(path).to_not be_nil
@@ -36,6 +38,8 @@ Then(/^I should be on the "(.*?)" page$/) do |page|
 		path = users_path
 	elsif page == 'wish list'
 		path = gift_ideas_path
+	elsif page == 'show wish'
+		path = gift_idea_path(GiftIdea.last)
 	end
 
 	expect(path).to_not be_nil
