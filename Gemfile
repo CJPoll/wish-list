@@ -38,6 +38,10 @@ group :development, :test do
 	gem 'cucumber-rails', '~> 1.4.1'
 end
 
+group :development do
+	gem 'erb2haml', '~> 0.1.5'
+end
+
 group :test do
 	gem 'capybara', '~> 2.4.1'
 end
