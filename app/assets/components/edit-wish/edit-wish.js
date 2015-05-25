@@ -1,0 +1,3 @@
+Polymer('edit-wish', {
+
+});

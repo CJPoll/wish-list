@@ -1,0 +1,13 @@
+@import 'bootstrap';
+
+.danger-button
+{
+	@extend .btn;
+	@extend .btn-danger;
+}
+
+:host {
+  display: block;
+}
+
+

@@ -1,0 +1,23 @@
+@import 'bootstrap';
+
+:host {
+  display: block;
+}
+
+.information-button
+{
+	@extend .btn;
+	@extend .btn-info;
+}
+
+.primary-button
+{
+	@extend .btn;
+	@extend .btn-primary;
+}
+
+.danger-button
+{
+	@extend .btn;
+	@extend .btn-danger;
+}

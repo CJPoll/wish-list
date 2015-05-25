@@ -6,6 +6,11 @@ class GiftIdeasController < ApplicationController
   # GET /gift_ideas.json
   def index
     @gift_ideas = current_user.gift_ideas
+
+	respond_to do |format|
+		format.html { render :index }
+		format.json { render json: @gift_ideas.to_json }
+	end
   end
 
   # GET /gift_ideas/1

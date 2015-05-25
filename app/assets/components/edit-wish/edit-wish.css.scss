@@ -1,0 +1,10 @@
+@import 'bootstrap';
+
+.information-button
+{
+	@extend .btn;
+	@extend .btn-info;
+}
+:host {
+  display: block;
+}
