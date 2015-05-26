@@ -2,9 +2,11 @@ Rails.application.routes.draw do
 
 	devise_for :users
 
-	root to: 'static#landing'
+	root to: 'gift_ideas#index'
 
 	resources :gift_ideas
+
+	get '/users/:user_id/wishes', to: 'gift_ideas#index'
 	scope '/admin' do
 		resources :users
 	end
