@@ -3,7 +3,10 @@
 
 	.row.hidden-xs
 		.table-responsive
-			%wishes-index{ url: @url }
+			- if @user == current_user
+				%wishes-index{ url: @url }
+			- else
+				%editable-wish-table{ url: @url }
 
 	.visible-xs
 		- @gift_ideas.each do |gift_idea|

@@ -1,0 +1,31 @@
+<polymer-element name="editable-wish-table" attributes="url">
+	<template>
+		<link rel="stylesheet" href="editable-wish-table.css" />
+
+		<table class="table">
+			<tr>
+				<th class="wish-name-column">
+					Name
+				</th>
+				<th class="wish-description-column">
+					Description
+				</th>
+			</tr>
+			<tr template repeat="{{ wish in wishes }}">
+				<td>
+					<a _href="{{ wish.url }}" class="primary-button"
+							   target="_blank">
+						{{ wish.name }}
+					</a>
+				</td>
+				<td>
+					<p>
+					{{ wish.description }}
+					</p>
+				</td>
+			</tr>
+		</table>
+	</template>
+
+	<script src="editable-wish-table.js"></script>
+</polymer-element>

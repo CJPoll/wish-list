@@ -5,7 +5,7 @@ class GiftIdeasController < ApplicationController
 	# GET /gift_ideas
 	# GET /gift_ideas.json
 	def index
-		user, @url = if params[:user_id]
+		@user, @url = if params[:user_id]
 			user = User.find params[:user_id]
 			url = "/users/#{ user.id }/wishes.json"
 			[ user, url ]
