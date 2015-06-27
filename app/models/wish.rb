@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: gift_ideas
+# Table name: wishes
 #
 #  id          :integer          not null, primary key
 #  name        :string(255)
@@ -10,7 +10,7 @@
 #  updated_at  :datetime
 #
 
-class GiftIdea < ActiveRecord::Base
+class Wish < ActiveRecord::Base
 	belongs_to :user
 
 	validates :name, presence: true

@@ -1,5 +1,5 @@
 Polymer('editable-wish-table', {
-	url: "/gift_ideas.json",
+	url: "/wishes.json",
 	ready: function() {
 
 		_this = this;

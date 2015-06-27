@@ -2,11 +2,11 @@ Rails.application.routes.draw do
 
 	devise_for :users
 
-	root to: 'gift_ideas#index'
+	root to: 'wishes#index'
 
-	resources :gift_ideas
+	resources :wishes
 
-	get '/users/:user_id/wishes', to: 'gift_ideas#index'
+	get '/users/:user_id/wishes', to: 'wishes#index'
 	scope '/admin' do
 		resources :users
 	end

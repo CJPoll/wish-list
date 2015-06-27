@@ -1,5 +1,5 @@
 Polymer( 'wishes-index', {
-	url: "/gift_ideas",
+	url: "/wishes",
 	ready: function() {
 
 		_this = this;

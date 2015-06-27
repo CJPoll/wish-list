@@ -9,14 +9,14 @@
 				%editable-wish-table{ url: @url }
 
 	.visible-xs
-		- @gift_ideas.each do |gift_idea|
+		- @wishes.each do |wish|
 			.container-fluid
 				.row
-					= link_to gift_idea.name, gift_idea.url, class: [:btn, :'btn-primary']
+					= link_to wish.name, wish.url, class: [:btn, :'btn-primary']
 				.row
 					%p
-						= gift_idea.description
+						= wish.description
 
 
 	.row
-		= link_to 'New Wish', new_gift_idea_path, class: [:btn, :'btn-success', :'left-margin']
+		= link_to 'New Wish', new_wish_path, class: [:btn, :'btn-success', :'left-margin']

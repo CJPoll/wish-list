@@ -10,8 +10,8 @@
 		%ul.nav.nav-pills.navbar-nav
 			%li.nav-item
 				= link_to 'Home', root_path
-			%li.nav-item{class: [(:active if controller_name == 'gift_ideas')]}
-				= link_to 'Wish List', gift_ideas_path
+			%li.nav-item{class: [(:active if controller_name == 'wishes')]}
+				= link_to 'Wish List', wishes_path
 			%li
 				- if user_signed_in?
 					= link_to 'Logout', destroy_user_session_path, method: :delete

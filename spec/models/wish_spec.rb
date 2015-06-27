@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: gift_ideas
+# Table name: wishes
 #
 #  id          :integer          not null, primary key
 #  name        :string(255)
@@ -12,8 +12,8 @@
 
 require 'rails_helper'
 
-RSpec.describe GiftIdea, :type => :model do
-	subject {FactoryGirl.build(:gift_idea)}
+RSpec.describe Wish, :type => :model do
+	subject {FactoryGirl.build(:wish)}
 
 	it "has a valid factory" do
 		expect(subject).to be_valid

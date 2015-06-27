@@ -31,7 +31,7 @@ gem 'haml-rails', '~> 0.5.3'
 gem 'bootstrap-sass', '~> 3.2.0.0'
 
 group :development, :test do
-  gem 'byebug'
+	gem 'byebug'
 	gem 'factory_girl_rails', '~> 4.4.1'
 	gem 'rspec-rails', '~> 3.0.1'
 	gem 'faker', '~> 1.4.2'

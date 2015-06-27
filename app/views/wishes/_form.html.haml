@@ -1,9 +1,9 @@
-= form_for @gift_idea do |f|
-	- if @gift_idea.errors.any?
+= form_for @wish do |f|
+	- if @wish.errors.any?
 		#error_explanation
-			%h2= "#{pluralize(@gift_idea.errors.count, "error")} prohibited this gift_idea from being saved:"
+			%h2= "#{pluralize(@wish.errors.count, "error")} prohibited this wish from being saved:"
 			%ul
-				- @gift_idea.errors.full_messages.each do |msg|
+				- @wish.errors.full_messages.each do |msg|
 					%li= msg
 
 	.form-group
