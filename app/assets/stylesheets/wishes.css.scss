@@ -26,3 +26,21 @@ input:not([type=submit]):not([type=file]), textarea
 {
 	@extend .form-control;
 }
+
+.primary-button
+{
+	@extend .btn;
+	@extend .btn-primary;
+}
+
+.information-button
+{
+	@extend .btn;
+	@extend .btn-info;
+}
+
+.danger-button
+{
+	@extend .btn;
+	@extend .btn-danger;
+}

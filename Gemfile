@@ -29,6 +29,7 @@ gem 'spring',        group: :development
 gem 'devise', '~> 3.4.0'
 gem 'haml-rails', '~> 0.5.3'
 gem 'bootstrap-sass', '~> 3.2.0.0'
+gem 'react-rails', '~> 1.2.0'
 
 group :development, :test do
 	gem 'byebug'
@@ -62,5 +63,3 @@ end
 
 gem 'thin'
 gem 'rails_12factor', group: :production
-
-gem 'polymer-rails'

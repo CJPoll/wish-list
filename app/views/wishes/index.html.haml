@@ -4,7 +4,7 @@
 	.row.hidden-xs
 		.table-responsive
 			- if @user == current_user
-				%wishes-index{ url: @url }
+				= react_component('WishTable', {wishes: @wishes}, {prerender: false})
 			- else
 				%editable-wish-table{ url: @url }
 
@@ -18,5 +18,6 @@
 						= wish.description
 
 
-	.row
-		= link_to 'New Wish', new_wish_path, class: [:btn, :'btn-success', :'left-margin']
+	- if @user == current_user
+		.row
+			= link_to 'New Wish', new_wish_path, class: [:btn, :'btn-success', :'left-margin']

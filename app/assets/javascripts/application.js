@@ -10,9 +10,10 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require polymer/webcomponents
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require react
+//= require react_ujs
 //= require bootstrap
 //= require_tree .
